@@ -1,0 +1,11 @@
+groups:
+- name: example
+  rules:
+  - alert: HighRequestLatency
+	expr: request_processing_seconds_bucket{le="0.5"} > 0.5
+	for: 5m
+	labels:
+  	severity: page
+	annotations:
+  	summary: High request latency
+  	description: "Request latency is above 0.5 seconds for more than 5 minutes."
